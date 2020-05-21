@@ -14,7 +14,7 @@ vehicleRouter.get('/', async (req, res) => {
     }
 })
 
-// GET ONE
+// GET ONE 
 vehicleRouter.get('/:vehicleId', async (req, res) => {
     try {
         const singleVehicle = await vehicleModel.getOneVehicle(req.params.vehicleId)
@@ -28,7 +28,7 @@ vehicleRouter.get('/:vehicleId', async (req, res) => {
 // CREATE
 vehicleRouter.post('/', async (req, res) => {
     try {
-        await vehicleModel.getOneVehicle(req.body)
+        await vehicleModel.createVehicle(req.body)
         res.json('ok')
     } catch (err) {
         console.log('failed to create vehicle from vehicle controller')
@@ -39,7 +39,7 @@ vehicleRouter.post('/', async (req, res) => {
 // EDIT VEHICLE
 vehicleRouter.put('/:vehicleId', async (req, res) => {
     try {
-        await vehicleModel.getOneVehicle(req.params.vehicleId, req.body)
+        await vehicleModel.updateVehicle(req.params.vehicleId, req.body)
         res.json('ok')
     } catch (err) {
         console.log('failed to update vehicle from vehicle controller')
@@ -50,7 +50,7 @@ vehicleRouter.put('/:vehicleId', async (req, res) => {
 // DELETE VEHICLE
 vehicleRouter.delete('/:vehicleId', async (req, res) => {
     try {
-        await vehicleModel.getOneVehicle(req.params.vehicleId)
+        await vehicleModel.deleteVehicle(req.params.vehicleId)
         res.json('ok')
     } catch (err) {
         console.log('failed to delete vehicle from vehicle controller')
