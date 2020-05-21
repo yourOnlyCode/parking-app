@@ -1,12 +1,13 @@
 const mongoose = require('mongoose')
 
-const connectionString = process.env.MONGO_URL || 'mongodb://localhost/parking-app'
+const connectionString = process.env.MONGODB_URL || 'mongodb://localhost/parking-app'
 
 mongoose.connect(connectionString)
     .then(() => {
-        console.log('succesfully connected to mongoose')
+        console.log('successfully connected to mongoose')
     })
     .catch((err) => {
+        console.log(err)
         console.log('failed to connect to mongoose')
     })
 
