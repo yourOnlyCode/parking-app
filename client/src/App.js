@@ -4,8 +4,10 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import Home from './components/Home.js'
 import Vehicle from './components/Vehicle.js'
 import Payment from './components/Payment.js'
+import SingleVehicle from './components/SingleVehicle.js'
+import SinglePayment from './components/SinglePayment.js'
 
-import './App.css';
+import './App.scss';
 
 class App extends React.Component {
 
@@ -29,6 +31,8 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/vehicle" component={Vehicle} />
             <Route exact path="/payment" component={Payment} />
+            <Route exact path="/vehicle/:vehicleId" component={SingleVehicle} />
+            <Route exact path="/payment/:paymentId" component={SinglePayment} />
 
           </Switch>
         </Router>

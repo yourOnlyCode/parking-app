@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+
 
 export default class Vehicle extends Component {
 
@@ -64,7 +66,9 @@ export default class Vehicle extends Component {
                     ? <div>
                         {this.state.allVehicles.map((vehicle) => {
                             return (
-                                <div>{vehicle.make} {vehicle.model}</div>
+                                <Link to={`/vehicle/${vehicle._id}`} >
+                                    <div>{vehicle.make} {vehicle.model}</div>
+                                </Link>
                             )
                         })}
 

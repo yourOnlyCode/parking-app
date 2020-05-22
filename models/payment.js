@@ -2,8 +2,8 @@ const mongoose = require('./connection.js')
 
 const PaymentSchema = new mongoose.Schema({
     name: String,
-    cardNumber: Number,
-    expirationDate: Number,
+    cardNumber: String,
+    expirationDate: String,
     CVV: Number,
     ZIP: Number,
 })

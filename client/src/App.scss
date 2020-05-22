@@ -1,0 +1,48 @@
+// Variables
+
+
+// Styling
+.App {
+  text-align: center;
+}
+
+.home-container {
+  background: #B08BB6;
+}
+
+.dropdown-model-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+    select {
+      color: rgb(172, 172, 172);
+      background: rgb(255, 255, 255);
+      margin: 5px;
+      padding: 5px;
+      border-radius: 5px;
+      width: 80%;
+      height: 50px;
+      font-size: 24px;
+
+        option {
+          text-align: center;
+        }
+  }
+}
+
+.park-button {
+  color: white;
+  background: #DCB0F1;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  width: 80%;
+  height: 50px;
+  font-size: 24px;
+}
+
+.map {
+  width: 100%;
+  height: 350px;
+}

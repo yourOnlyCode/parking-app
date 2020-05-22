@@ -28,7 +28,7 @@ paymentRouter.get('/:paymentId', async (req, res) => {
 // CREATE
 paymentRouter.post('/', async (req, res) => {
     try {
-        await paymentModel.getOnePayment(req.body)
+        await paymentModel.createPayment(req.body)
         res.json('ok')
     } catch (err) {
         console.log('failed to create payment from payment controller')
@@ -39,7 +39,7 @@ paymentRouter.post('/', async (req, res) => {
 // EDIT PAYMENT
 paymentRouter.put('/:paymentId', async (req, res) => {
     try {
-        await paymentModel.getOnePayment(req.params.paymentId, req.body)
+        await paymentModel.updatePayment(req.params.paymentId, req.body)
         res.json('ok')
     } catch (err) {
         console.log('failed to update payment from payment controller')
@@ -50,7 +50,7 @@ paymentRouter.put('/:paymentId', async (req, res) => {
 // DELETE PAYMENT
 paymentRouter.delete('/:paymentId', async (req, res) => {
     try {
-        await paymentModel.getOnePayment(req.params.paymentId)
+        await paymentModel.deletePayment(req.params.paymentId)
         res.json('ok')
     } catch (err) {
         console.log('failed to delete payment from payment controller')

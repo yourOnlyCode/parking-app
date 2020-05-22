@@ -28,7 +28,7 @@ locationRouter.get('/:locationId', async (req, res) => {
 // CREATE
 locationRouter.post('/', async (req, res) => {
     try {
-        await locationModel.getOneLocation(req.body)
+        await locationModel.createLocation(req.body)
         res.json('ok')
     } catch (err) {
         console.log('failed to create location from location controller')
@@ -39,7 +39,7 @@ locationRouter.post('/', async (req, res) => {
 // EDIT LOCATION
 locationRouter.put('/:locationId', async (req, res) => {
     try {
-        await locationModel.getOneLocation(req.params.locationId, req.body)
+        await locationModel.updateLocation(req.params.locationId, req.body)
         res.json('ok')
     } catch (err) {
         console.log('failed to update location from location controller')
@@ -50,7 +50,7 @@ locationRouter.put('/:locationId', async (req, res) => {
 // DELETE LOCATION
 locationRouter.delete('/:locationId', async (req, res) => {
     try {
-        await locationModel.getOneLocation(req.params.locationId)
+        await locationModel.deleteLocation(req.params.locationId)
         res.json('ok')
     } catch (err) {
         console.log('failed to delete location from location controller')
