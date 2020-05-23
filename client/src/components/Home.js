@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Map from './Map.js'
+import MapContainer from './MapContainer.js'
 import Location from './Location.js'
 
 export default class Home extends Component {
@@ -46,7 +46,7 @@ export default class Home extends Component {
 
                 <Location />
 
-                <Map />
+                <MapContainer />
 
                 <div className="dropdown-model-container">
                     <label></label>
