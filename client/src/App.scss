@@ -48,6 +48,17 @@ $secondary: rgb(138, 233, 220);
   }
 }
 
+.checkout {
+  color: $secondary;
+      background: rgb(255, 255, 255);
+      margin: 5px;
+      padding: 5px;
+      border-radius: 5px;
+      width: 80%;
+      height: 50px;
+      font-size: 24px;
+}
+
 .park-button {
   color: white;
   background: $secondary;

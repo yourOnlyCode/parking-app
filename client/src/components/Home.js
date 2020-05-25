@@ -45,7 +45,7 @@ export default class Home extends Component {
         ],
         closestLocations: [],
         distanceInKm: 10,
-        parkTime: 10,
+        parkTime: 60,
         carParked: false,
     }
 
@@ -152,7 +152,9 @@ export default class Home extends Component {
     // PARK TIME && SUBMIT
 
     onChangeParkingTimer = (evt) => {
-
+        const newState = { ...this.state }
+        newState.parkTime[evt.target.name] = evt.target.value
+        this.setState(newState)
     }
 
     onSubmitParkCar = (evt) => {
@@ -175,9 +177,9 @@ export default class Home extends Component {
         }
         if (this.myInterval < 1) {
             console.log('timer out')
-            this.setState({ carParked: false })
-            this.setState({ parkTime: null })
             clearInterval(this.myInterval)
+            this.setState({ carParked: false })
+            this.setState({ parkTime: 0 })
         }
     }
 
@@ -190,6 +192,14 @@ export default class Home extends Component {
     //         clearInterval(this.myInterval)
     //     }
     // }
+
+    onClickCheckout = () => {
+        console.log('checking out')
+        console.log(this.state.parkTime)
+        clearInterval(this.myInterval)
+        this.setState({ parkTime: 0 })
+        this.setState({ carParked: false })
+    }
 
 
     render() {
@@ -238,7 +248,12 @@ export default class Home extends Component {
                         </div>
 
                         <div className="dropdown-model-container">
-                            <input type="number" name="parkTime" onChange={this.onChangeParkingTimer} />
+                            <input
+                                type="text"
+                                pattern="[0-9]"
+                                name="parkTime"
+                                value={this.state.parkTime}
+                                onChange={this.onChangeParkingTimer} />
                         </div>
 
                         <input
@@ -257,7 +272,10 @@ export default class Home extends Component {
                         timerAtZero={this.timerAtZero}
                     />
 
-                    <button>Checkout Early</button>
+                    <button
+                        className="checkout"
+                        onClick={this.onClickCheckout}
+                    >Checkout Early</button>
 
                 </div>
             </div>
