@@ -53,8 +53,6 @@ export default class Home extends Component {
         this.getVehiclesForDropdown()
         this.getPaymentsForDropdown()
         this.getCurrentLocation()
-        this.timerCountDown()
-        this.timerAtZero()
     }
 
     componentWillUnmount() {
@@ -159,31 +157,49 @@ export default class Home extends Component {
 
     onSubmitParkCar = (evt) => {
         evt.preventDefault()
+        // const newState = evt.target.value
         this.setState({ carParked: true })
-        this.setState({ parkTime: this.state.parkTime })
+        // this.setState({ parkTime: newState })
+        console.log('car status:', this.state.carParked)
+        this.timerCountDown()
     }
 
     timerCountDown = () => {
         console.log('park time:', this.state.parkTime)
-        this.setState({ parkTime: this.state.parkTime })
-        this.myInterval = setInterval(() => {
-            this.setState({ parkTime: this.state.parkTime - 1 })
-        }, 1000)
-    }
-
-    timerAtZero = () => {
-        if (this.state.count === 0) {
-            console.log('timer ran out')
+        let seconds = this.state.parkTime
+        if (this.state.carParked === true) {
+            console.log('timer running')
+            this.myInterval = setInterval(() => {
+                this.setState({ parkTime: this.state.parkTime - 1 })
+            }, 1000)
+        }
+        if (this.myInterval < 1) {
+            console.log('timer out')
             this.setState({ carParked: false })
-            this.setState({ count: null })
+            this.setState({ parkTime: null })
+            clearInterval(this.myInterval)
         }
     }
+
+    // timerAtZero = () => {
+    //     console.log('my interval', this.state.parkTime)
+    //     if (this.myInterval < 1) {
+    //         console.log('timer ran out')
+    //         this.setState({ carParked: false })
+    //         this.setState({ parkTime: null })
+    //         clearInterval(this.myInterval)
+    //     }
+    // }
 
 
     render() {
         return (
             <div>
-                <img className="logo" src="../images/logo.png" />
+                <img
+                    className="logo"
+                    src="../images/logo.png"
+                    alt="parkpal parkpalapp parkapp parking"
+                />
 
                 <div className="home-container">
 
@@ -225,14 +241,23 @@ export default class Home extends Component {
                             <input type="number" name="parkTime" onChange={this.onChangeParkingTimer} />
                         </div>
 
-                        <button className="park-button">PARK!</button>
+                        <input
+                            type="submit"
+                            className="park-button"
+                            name="parkTime"
+                            value="PARK!"
+                            onSubmit={this.onSubmitParkCar}
+                        />
                     </form>
 
                     <Timer
                         parkTime={this.state.parkTime}
                         carParked={this.state.carParked}
                         timerCountDown={this.timerCountDown}
+                        timerAtZero={this.timerAtZero}
                     />
+
+                    <button>Checkout Early</button>
 
                 </div>
             </div>

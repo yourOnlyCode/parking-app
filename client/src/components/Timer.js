@@ -2,18 +2,18 @@ import React, { Component } from 'react'
 
 export default class Timer extends Component {
 
-    state = {
-        count: null,
-    }
-
-    // componentDidMount() {
-    //     this.timerCountDown()
-    //     this.timerAtZero()
+    // state = {
+    //     count: null,
     // }
 
-    componentWillUnmount() {
-        this.clearInterval(this.myInterval)
+    componentDidMount() {
+        this.props.timerCountDown()
+        // this.props.timerAtZero()
     }
+
+    // componentWillUnmount() {
+    //     this.clearInterval(this.myInterval)
+    // }
 
     // timerCountDown = () => {
     //     console.log('park time:', this.props.parkTime)
@@ -32,11 +32,10 @@ export default class Timer extends Component {
     // }
 
     render() {
-        const { count } = this.state
         return (
             <div>
                 <div>
-                    Time Left: {this.state.count}
+                    Time Left: {this.props.parkTime}
                 </div>
             </div>
         )
