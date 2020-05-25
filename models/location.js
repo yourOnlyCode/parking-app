@@ -1,8 +1,8 @@
 const mongoose = require('./connection.js')
 
 const LocationSchema = new mongoose.Schema({
-    latitude: Number,
-    longitude: Number,
+    lat: Number,
+    lng: Number,
 })
 
 const locationModel = mongoose.model('location', LocationSchema)
