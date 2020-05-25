@@ -57,6 +57,9 @@ export default class Home extends Component {
         this.timerAtZero()
     }
 
+    componentWillUnmount() {
+        this.clearInterval(this.myInterval)
+    }
 
     getVehiclesForDropdown = async () => {
         try {
