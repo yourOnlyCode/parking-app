@@ -18,6 +18,7 @@ class App extends React.Component {
         <div className="home-header">
           <div>Burger Button</div>
           <div>Header Title</div>
+
         </div>
 
         <Router>

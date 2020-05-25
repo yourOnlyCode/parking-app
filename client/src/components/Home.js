@@ -45,15 +45,18 @@ export default class Home extends Component {
         ],
         closestLocations: [],
         distanceInKm: 10,
-        parkTime: null,
+        parkTime: 10,
+        carParked: false,
     }
 
     componentDidMount() {
         this.getVehiclesForDropdown()
         this.getPaymentsForDropdown()
         this.getCurrentLocation()
-
+        this.timerCountDown()
+        this.timerAtZero()
     }
+
 
     getVehiclesForDropdown = async () => {
         try {
@@ -147,59 +150,88 @@ export default class Home extends Component {
 
     // PARK TIME && SUBMIT
 
-    onSubmitParkCar = () => {
-        
+    onChangeParkingTimer = (evt) => {
+
     }
 
+    onSubmitParkCar = (evt) => {
+        evt.preventDefault()
+        this.setState({ carParked: true })
+        this.setState({ parkTime: this.state.parkTime })
+    }
+
+    timerCountDown = () => {
+        console.log('park time:', this.state.parkTime)
+        this.setState({ parkTime: this.state.parkTime })
+        this.myInterval = setInterval(() => {
+            this.setState({ parkTime: this.state.parkTime - 1 })
+        }, 1000)
+    }
+
+    timerAtZero = () => {
+        if (this.state.count === 0) {
+            console.log('timer ran out')
+            this.setState({ carParked: false })
+            this.setState({ count: null })
+        }
+    }
 
 
     render() {
         return (
-            <div className="home-container">
-                <h1>Parking App Logo</h1>
+            <div>
+                <img className="logo" src="../images/logo.png" />
 
-                <form>
-                    <div className="dropdown-model-container">
-                        <label></label>
-                        <select>
-                            {this.state.closestLocations.map((locations) => {
-                                return (
-                                    <option>{locations.name}</option>
-                                )
-                            })}
-                        </select>
-                    </div>
+                <div className="home-container">
 
-                    <div className="dropdown-model-container">
-                        <label></label>
-                        <select>
-                            {this.state.allVehicles.map((vehicle) => {
-                                return (
-                                    <option>{vehicle.make} {vehicle.model}</option>
-                                )
-                            })}
-                        </select>
-                    </div>
+                    <form onSubmit={this.onSubmitParkCar}>
+                        <div className="dropdown-model-container">
+                            <label></label>
+                            <select>
+                                {this.state.closestLocations.map((locations) => {
+                                    return (
+                                        <option>{locations.name}</option>
+                                    )
+                                })}
+                            </select>
+                        </div>
 
-                    <div className="dropdown-model-container">
-                        <label></label>
-                        <select>
-                            {this.state.allPayments.map((payment) => {
-                                return (
-                                    <option>{payment.name} {payment.cardNumber}</option>
-                                )
-                            })}
-                        </select>
-                    </div>
+                        <div className="dropdown-model-container">
+                            <label></label>
+                            <select>
+                                {this.state.allVehicles.map((vehicle) => {
+                                    return (
+                                        <option>{vehicle.make} {vehicle.model}</option>
+                                    )
+                                })}
+                            </select>
+                        </div>
 
-                    <div className="dropdown-model-container">
-                        <input type="number" name="parkTime" />
-                    </div>
+                        <div className="dropdown-model-container">
+                            <label></label>
+                            <select>
+                                {this.state.allPayments.map((payment) => {
+                                    return (
+                                        <option>{payment.name} {payment.cardNumber}</option>
+                                    )
+                                })}
+                            </select>
+                        </div>
 
-                    <button className="park-button">PARK!</button>
-                </form>
+                        <div className="dropdown-model-container">
+                            <input type="number" name="parkTime" onChange={this.onChangeParkingTimer} />
+                        </div>
 
+                        <button className="park-button">PARK!</button>
+                    </form>
 
+                    <Timer
+                        parkTime={this.state.parkTime}
+                        carParked={this.state.carParked}
+                        timerCountDown={this.timerCountDown}
+                    />
+
+                </div>
             </div>
         )
     }

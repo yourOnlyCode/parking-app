@@ -1,4 +1,6 @@
 // Variables
+$primary: rgb(89, 201, 242);
+$secondary: rgb(138, 233, 220);
 
 
 // Styling
@@ -6,8 +8,12 @@
   text-align: center;
 }
 
+.logo {
+  width: 20%;
+}
+
 .home-container {
-  background: #B08BB6;
+  background: $primary;
 }
 
 .dropdown-model-container {
@@ -44,7 +50,7 @@
 
 .park-button {
   color: white;
-  background: #DCB0F1;
+  background: $secondary;
   margin: 5px;
   padding: 5px;
   border-radius: 5px;
