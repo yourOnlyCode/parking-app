@@ -21,7 +21,7 @@ export default class Timer extends Component {
         return (
             <div>
                 <div>
-                    {this.state.count}
+                    Time Left: {this.state.count}
                 </div>
             </div>
         )
