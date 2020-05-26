@@ -29,9 +29,7 @@ export default class Timer extends Component {
     render() {
         return (
             <div>
-                <div>
-                    Time Left: {this.props.parkTime}
-                </div>
+                <div className="timer" >Time: {this.props.parkTime}</div>
             </div>
         )
     }

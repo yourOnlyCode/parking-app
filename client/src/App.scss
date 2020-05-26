@@ -116,6 +116,10 @@ body {
 .home-container {
   background: $primary;
   padding: 25px 0 100% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .dropdown-model-container {
@@ -129,9 +133,10 @@ body {
       margin: 10px;
       padding: 5px;
       border-radius: 5px;
-      width: 40%;
-      height: 32px;
+      width: 90%;
+      height: 38px;
       font-size: 24px;
+      text-align: center;
     }
 
     select {
@@ -140,7 +145,7 @@ body {
       margin: 10px;
       padding: 5px;
       border-radius: 5px;
-      width: 80%;
+      width: 300px;
       height: 50px;
       font-size: 24px;
 
@@ -156,7 +161,7 @@ body {
       margin: 5px;
       padding: 5px;
       border-radius: 5px;
-      width: 80%;
+      width: 300px;
       height: 50px;
       font-size: 24px;
 }
@@ -175,6 +180,22 @@ body {
 .map {
   width: 100%;
   height: 350px;
+}
+
+.timer-page {
+  height: 100%;
+
+  .timer {
+  color: white;
+  background: $secondary;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  }
+
 }
 
 // KEYFRAMES

@@ -155,28 +155,17 @@ export default class Home extends Component {
 
     onSubmitParkCar = (evt) => {
         evt.preventDefault()
-        // const newState = evt.target.value
         this.setState({ carParked: true })
-        // this.setState({ parkTime: newState })
-        console.log('car status:', this.state.carParked)
+        console.log('car parked:', this.state.carParked)
         this.timerCountDown()
     }
 
     timerCountDown = () => {
         console.log('park time:', this.state.parkTime)
-        let seconds = this.state.parkTime
-        if (this.state.carParked === true) {
-            console.log('timer running')
-            this.myInterval = setInterval(() => {
-                this.setState({ parkTime: this.state.parkTime - 1 })
-            }, 1000)
-        }
-        if (this.myInterval < 1) {
-            console.log('timer out')
-            clearInterval(this.myInterval)
-            this.setState({ carParked: false })
-            this.setState({ parkTime: 0 })
-        }
+        console.log('timer running')
+        this.myInterval = setInterval(() => {
+            this.setState({ parkTime: this.state.parkTime - 1 })
+        }, 1000)
     }
 
     // timerAtZero = () => {
@@ -191,6 +180,7 @@ export default class Home extends Component {
 
     onClickCheckout = () => {
         console.log('checking out')
+        console.log('car parked:', this.state.carParked)
         console.log(this.state.parkTime)
         clearInterval(this.myInterval)
         this.setState({ parkTime: 60 })
@@ -261,11 +251,10 @@ export default class Home extends Component {
                                 className="park-button"
                                 name="parkTime"
                                 value="PARK!"
-                                onSubmit={this.onSubmitParkCar}
                             />
                         </form>
 
-                        : <div>
+                        : <div className="timer-page">
                             <Timer
                                 parkTime={this.state.parkTime}
                                 carParked={this.state.carParked}
