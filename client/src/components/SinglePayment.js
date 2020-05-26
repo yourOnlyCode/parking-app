@@ -38,10 +38,6 @@ export default class SinglePayment extends Component {
                     <div className="single-payment-item">Exp Date: {this.state.expirationDate}</div>
                     <div className="single-payment-item">ZIP: {this.state.ZIP}</div>
 
-                    <button
-                        className="single-payment-item"
-                        onClick={this.onClickDeletePayment}
-                    >X</button>
                 </div>
 
             </div>

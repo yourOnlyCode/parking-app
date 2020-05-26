@@ -80,7 +80,7 @@ export default class Payment extends Component {
                                         <Link className="payment-link" to={`/payment/${payment._id}`} >
                                             <div className="single-payment">{payment.name} {payment.cardNumber}</div>
                                         </Link>
-                                        <button onClick={this.onClickDeletePayment}>delete</button>
+                                       
                                     </div>
                                 )
 
