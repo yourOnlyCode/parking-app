@@ -1,6 +1,7 @@
 // Variables
 $primary: rgba(30, 188, 245, 0.466);
-$secondary: rgb(103, 204, 191);
+$secondary: rgb(109, 220, 205);
+$tertiary: rgb(242, 187, 103);
 
 
 // Styling
@@ -31,6 +32,9 @@ body {
 }
 
 .burger-toggle {
+  background: white;
+  height: 55px;
+  width: 60px;
   animation-name: popin-menu;
   animation-duration: .1s;
 }
@@ -57,7 +61,7 @@ body {
   background: white;
   width: 300px;
   animation-name: popout-menu;
-  animation-duration: .1s;
+  animation-duration: .07s;
 }
 
 .x-burger {
@@ -178,17 +182,22 @@ body {
 @keyframes popout-menu {
   0% {
     width: 0%;
+    height: 55px;
   }
   100% {
     width: 100%;
+    height: 100%;
   }
 }
 
 @keyframes popin-menu {
   0% {
-    width: 100%
+    width: 300px;
+    height: 100%;
   }
   100% {
-    width: 0%
+    border-right: 0;
+    width: 60px;
+    height: 55px;
   }
 }

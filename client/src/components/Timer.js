@@ -6,11 +6,6 @@ export default class Timer extends Component {
     //     count: null,
     // }
 
-    componentDidMount() {
-        this.props.timerCountDown()
-        // this.props.timerAtZero()
-    }
-
     // componentWillUnmount() {
     //     this.clearInterval(this.myInterval)
     // }
