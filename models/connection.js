@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const connectionString = process.env.MONGODB_URL || 'mongodb://localhost/parking-app'
+const connectionString = process.env.MONGODB_URI || 'mongodb://localhost/parking-app'
 
 mongoose.connect(connectionString)
     .then(() => {
