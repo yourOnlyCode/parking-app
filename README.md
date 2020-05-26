@@ -10,3 +10,5 @@ Project Board in GitHub Project
 ![ERD](parking-ERD.pdf)
 
 ![Wireframe](parking-app.pdf)
+
+<img src="parking-ERD.pdf">
