@@ -101,6 +101,17 @@ body {
   animation-duration: .1s;
 }
 
+.home-icon-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+.material-icons {
+  margin: 5px;
+}
+
 .link {
   position: relative;
   margin: 10px;

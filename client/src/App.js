@@ -49,9 +49,28 @@ class App extends React.Component {
                   <div className="x-piece-two"></div>
                 </div>
                 <div className="nav-links">
-                  <Link className="link" onClick={this.onClickBurgerButton} to="/">Home</Link>
-                  <Link className="link" onClick={this.onClickBurgerButton} to="/vehicle">Vehicles</Link>
-                  <Link className="link" onClick={this.onClickBurgerButton} to="/payment">Payment</Link>
+                  <div className="home-icon-container">
+                    <Link className="link" onClick={this.onClickBurgerButton} to="/">
+                      <span class="material-icons">
+                        home
+                    </span>
+                    Home</Link>
+                  </div>
+
+                  <div className="home-icon-container">
+                    <Link className="link" onClick={this.onClickBurgerButton} to="/vehicle">
+                      <span class="material-icons">
+                        directions_car
+                      </span>Vehicles</Link>
+                  </div>
+
+                  <div className="home-icon-container">
+                    <Link className="link" onClick={this.onClickBurgerButton} to="/payment">
+                      <span class="material-icons">
+                        credit_card
+                      </span>Payment</Link>
+                  </div>
+
                 </div>
               </div>}
 
