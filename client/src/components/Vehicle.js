@@ -60,69 +60,71 @@ export default class Vehicle extends Component {
         return (
             <div>
                 <h1>All Vehicles</h1>
+                <div className="vehicle-page">
 
-                {this.state.toggleVehicleForm === true
+                    {this.state.toggleVehicleForm === true
 
-                    ? <div>
-                        {this.state.allVehicles.map((vehicle) => {
-                            return (
-                                <Link to={`/vehicle/${vehicle._id}`} >
-                                    <div>{vehicle.make} {vehicle.model}</div>
-                                </Link>
-                            )
-                        })}
+                        ? <div className="vehicle-list">
+                            {this.state.allVehicles.map((vehicle) => {
+                                return (
+                                    <Link to={`/vehicle/${vehicle._id}`} >
+                                        <div>{vehicle.make} {vehicle.model}</div>
+                                    </Link>
+                                )
+                            })}
 
-                        <button
-                            className="new-form-button"
-                            onClick={this.onClickToggleForm}>Add New Vehicle</button>
-                    </div>
-
-                    : <form onSubmit={this.onVehicleSubmit}>
-
-                        <div className="vehicle-form">
-                            <label htmlFor="name">Make:</label>
-                            <input
-                                type="text"
-                                name="make"
-                                value={this.state.newVehicle.make}
-                                onChange={this.onChange}
-                            />
-                        </div>
-                        <div className="vehicle-form">
-                            <label htmlFor="model">Model:</label>
-                            <input
-                                type="text"
-                                name="model"
-                                value={this.state.newVehicle.model}
-                                onChange={this.onChange}
-                            />
-                        </div>
-                        <div className="vehicle-form">
-                            <label htmlFor="licensePlate">License Plate:</label>
-                            <input
-                                type="text"
-                                name="licensePlate"
-                                value={this.state.newVehicle.licensePlate}
-                                onChange={this.onChange}
-                            />
-                        </div>
-                        <div className="vehicle-form">
-                            <label htmlFor="stateAndCountry">State / Country:</label>
-                            <input
-                                type="text"
-                                name="stateAndCountry"
-                                value={this.state.newVehicle.stateAndCountry}
-                                onChange={this.onChange}
-                            />
+                            <button
+                                className="add-vehicle"
+                                onClick={this.onClickToggleForm}>Add New</button>
                         </div>
 
-                        <input type="submit" value="Add Vehicle" />
+                        : <form onSubmit={this.onVehicleSubmit}>
 
-                        <button
-                            className="new-form-button"
-                            onClick={this.onClickToggleForm}>Cancel</button>
-                    </form>
-                }
+                            <div className="vehicle-form">
+                                <label htmlFor="name">Make:</label>
+                                <input
+                                    type="text"
+                                    name="make"
+                                    value={this.state.newVehicle.make}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+                            <div className="vehicle-form">
+                                <label htmlFor="model">Model:</label>
+                                <input
+                                    type="text"
+                                    name="model"
+                                    value={this.state.newVehicle.model}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+                            <div className="vehicle-form">
+                                <label htmlFor="licensePlate">License Plate:</label>
+                                <input
+                                    type="text"
+                                    name="licensePlate"
+                                    value={this.state.newVehicle.licensePlate}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+                            <div className="vehicle-form">
+                                <label htmlFor="stateAndCountry">State / Country:</label>
+                                <input
+                                    type="text"
+                                    name="stateAndCountry"
+                                    value={this.state.newVehicle.stateAndCountry}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+
+                            <input className="add-vehicle" type="submit" value="Add Vehicle" />
+
+                            <button
+                                className="add-vehicle"
+                                onClick={this.onClickToggleForm}>Cancel</button>
+                        </form>
+                    }
+                </div>
 
             </div>
         )
