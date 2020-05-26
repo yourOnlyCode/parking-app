@@ -29,12 +29,10 @@ export default class SingleVehicle extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Vehicle</h1>
-                <div>Make: {this.state.make}</div>
-                <div>Model: {this.state.model}</div>
-                <div>License Plate: {this.state.licensePlate}</div>
-                <div>Location: {this.state.stateAndCountry}</div>
+            <div className="single-vehicle">
+                <h1 className="single-vehicle-title">{this.state.make} {this.state.model}</h1>
+                <div className="single-vehicle-list">License Plate: {this.state.licensePlate}</div>
+                <div className="single-vehicle-list">Location: {this.state.stateAndCountry}</div>
             </div>
         )
     }

@@ -1,7 +1,7 @@
 // Variables
 $primary: rgba(30, 188, 245, 0.466);
 $secondary: rgb(109, 220, 205);
-$tertiary: rgb(242, 187, 103);
+$tertiary: rgb(132, 255, 196);
 
 
 // Styling
@@ -44,7 +44,7 @@ body {
   margin: 15px;
 
   &:hover div{
-    background: rgb(114, 114, 114);
+    background: silver;
   }
 
   .menu-piece {
@@ -69,7 +69,7 @@ body {
   margin: 26px;
 
   &:hover div {
-    background: rgb(114, 114, 114);
+    background: silver;
   }
 }
 
@@ -103,7 +103,7 @@ body {
   text-decoration: none;
   color: black;
   &:hover {
-    color: rgb(114, 114, 114);
+    color: silver;
   }
 }
 
@@ -211,8 +211,27 @@ body {
 }
 
 .vehicle-list {
-  
+  text-decoration: none;
+  margin: 20px;
+
+  .vehicle-link {
+    text-decoration: none;
+    color: black;
+    &:hover {
+      color: silver;
+    }
+
+    .single-vehicle {
+      margin: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 5px;
+      width: 250px;
+    }
+  }
 }
+
+
 
 .vehicle-form {
 
@@ -242,6 +261,16 @@ body {
       width: 140px;
       height: 50px;
       font-size: 22px;
+
+      &:hover {
+        color: $tertiary;
+      }
+}
+
+// SINGLE VEHICLE
+
+.single-vehicle {
+  
 }
 
 // KEYFRAMES

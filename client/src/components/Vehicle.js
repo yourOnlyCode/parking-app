@@ -67,8 +67,8 @@ export default class Vehicle extends Component {
                         ? <div className="vehicle-list">
                             {this.state.allVehicles.map((vehicle) => {
                                 return (
-                                    <Link to={`/vehicle/${vehicle._id}`} >
-                                        <div>{vehicle.make} {vehicle.model}</div>
+                                    <Link className="vehicle-link" to={`/vehicle/${vehicle._id}`} >
+                                        <div className="single-vehicle">{vehicle.make} {vehicle.model}</div>
                                     </Link>
                                 )
                             })}
