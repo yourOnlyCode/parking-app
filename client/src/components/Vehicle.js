@@ -58,7 +58,7 @@ export default class Vehicle extends Component {
 
     render() {
         return (
-            <div>
+            <div className="vehicle-container">
                 <h1>All Vehicles</h1>
                 <div className="vehicle-page">
 

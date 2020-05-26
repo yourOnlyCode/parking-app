@@ -67,7 +67,7 @@ export default class Payment extends Component {
 
     render() {
         return (
-            <div>
+            <div className="payment-container">
                 <h1>All Payments</h1>
                 <div className="payment-page">
 
@@ -80,7 +80,7 @@ export default class Payment extends Component {
                                         <Link className="payment-link" to={`/payment/${payment._id}`} >
                                             <div className="single-payment">{payment.name} {payment.cardNumber}</div>
                                         </Link>
-                                       
+
                                     </div>
                                 )
 

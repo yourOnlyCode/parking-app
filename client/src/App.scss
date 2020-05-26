@@ -26,7 +26,7 @@ body {
 
 .header-container {
   overflow: hidden;
-  margin: 15px;
+  margin: 25px;
   width: 100%;
   height: 30px;
 }
@@ -115,6 +115,7 @@ body {
 
 .logo {
   width: 20%;
+  margin: 10px;
 }
 
 .home-container {
@@ -210,6 +211,10 @@ body {
 
 // VEHICLES
 
+.vehicle-container {
+  margin: -20px;
+}
+
 .vehicle-page {
   background: $primary;
   padding: 25px 0 100% 0;
@@ -294,6 +299,10 @@ body {
 }
 
 // PAYMENT
+.payment-container {
+  margin: -20px;
+}
+
 .payment-page {
   background: $primary;
   padding: 25px 0 100% 0;
