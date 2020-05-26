@@ -55,10 +55,6 @@ export default class Home extends Component {
         this.getCurrentLocation()
     }
 
-    componentWillUnmount() {
-        this.clearInterval(this.myInterval)
-    }
-
     getVehiclesForDropdown = async () => {
         try {
             const res = await axios.get(`/api/vehicle`)

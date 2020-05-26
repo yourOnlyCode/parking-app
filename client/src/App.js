@@ -11,21 +11,56 @@ import './App.scss';
 
 class App extends React.Component {
 
+  state = {
+    burgerButtonToggle: true,
+  }
+
+  onClickBurgerButton = () => {
+    this.setState({ burgerButtonToggle: !this.state.burgerButtonToggle })
+  }
+
   render() {
     return (
       <div className="App">
 
-        <div className="home-header">
-          <div>Burger Button</div>
-          <div>Header Title</div>
 
-        </div>
 
         <Router>
 
-          <Link to="/">Home</Link>
-          <Link to="/vehicle">Vehicles</Link>
-          <Link to="/payment">Payment</Link>
+
+          <div className="home-header">
+
+
+
+            {this.state.burgerButtonToggle === true
+              ?
+              <div>
+                <div onClick={this.onClickBurgerButton} className="burger">
+                  <div className="menu-piece"></div>
+                  <div className="menu-piece"></div>
+                  <div className="menu-piece"></div>
+                </div>
+
+              </div>
+              :
+              <div className="x-burger-toggle">
+                <div onClick={this.onClickBurgerButton} className="x-burger">
+                  <div className="x-piece-one"></div>
+                  <div className="x-piece-two"></div>
+                </div>
+                <div className="nav-links">
+                  <Link className="link" onClick={this.onClickBurgerButton} to="/">Home</Link>
+                  <Link className="link" onClick={this.onClickBurgerButton} to="/vehicle">Vehicles</Link>
+                  <Link className="link" onClick={this.onClickBurgerButton} to="/payment">Payment</Link>
+                </div>
+              </div>}
+
+            <div className="header-container">
+
+
+            </div>
+
+          </div>
 
           <Switch>
 
@@ -36,6 +71,8 @@ class App extends React.Component {
             <Route exact path="/payment/:paymentId" component={SinglePayment} />
 
           </Switch>
+
+
         </Router>
 
       </div>

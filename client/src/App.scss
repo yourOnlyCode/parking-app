@@ -8,6 +8,84 @@ $secondary: rgb(138, 233, 220);
   text-align: center;
 }
 
+.home-header {
+  display: flex;
+  position: fixed;
+}
+
+.header-container {
+  overflow: hidden;
+  margin: 15px;
+  width: 100%;
+  height: 30px;
+}
+
+.header-line {
+  border-bottom: 1px solid $primary;
+}
+
+.burger {
+  width: 30px;
+  margin: 15px;
+
+  &:hover div{
+    background: rgb(114, 114, 114);
+  }
+
+  .menu-piece {
+    margin: 3px;
+    background: black;
+    width: 25px;
+    height: 4px;
+  }
+}
+
+.x-burger-toggle {
+  display: flex;
+  flex-direction: column;
+}
+
+.x-burger {
+  width: 30px;
+  margin: 26px;
+
+  &:hover div {
+    background: rgb(114, 114, 114);
+  }
+}
+
+.x-piece-one {
+  margin: -3.5px;
+    background: black;
+    width: 25px;
+    height: 4px;
+    transform: rotate(45deg);
+}
+.x-piece-two {
+  margin: -3.5px;
+    background: black;
+    width: 25px;
+    height: 4px;
+    transform: rotate(-45deg);
+}
+
+.nav-links {
+  background: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  position: relative;
+  margin: 10px;
+  text-decoration: none;
+  color: black;
+  &:hover {
+    color: rgb(114, 114, 114);
+  }
+}
+
 .logo {
   width: 20%;
 }
