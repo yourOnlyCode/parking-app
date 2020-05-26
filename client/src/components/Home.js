@@ -97,16 +97,16 @@ export default class Home extends Component {
     }
 
     createPosition = async (position) => {
-        const newLat = position.coords.latitude
-        const newLng = position.coords.longitude
+        const newLat = position.coords.latitude || 0
+        const newLng = position.coords.longitude || 0
         try {
             await axios.post(`/api/location`, this.state.newLocation)
-            this.setState({
-                newLocation: {
-                    lat: newLat,
-                    lng: newLng,
-                }
-            })
+            const newState = { ...this.state }
+            newState.newLocation = {
+                lat: newLat,
+                lng: newLng,
+            }
+            this.setState(newState)
             await this.getClosestLocationFromCurrentPosition()
         } catch (err) {
             console.log(err)
@@ -140,7 +140,9 @@ export default class Home extends Component {
             if (this.getDistance(this.state.newLocation.lat, this.state.newLocation.lng, data[i].lat, data[i].lng, "K") <= this.state.distanceInKm) {
                 // html += '<p>' + data[i].location + ' - ' + data[i].code + '</p>';
                 console.log('Closest Locations:', data[i].name)
-                this.state.closestLocations.push(data[i])
+                const newState = { ...this.state }
+                newState.closestLocations.push(data[i])
+                this.setState(newState)
             }
         }
     }
