@@ -34,7 +34,7 @@ class App extends React.Component {
 
             {this.state.burgerButtonToggle === true
               ?
-              <div>
+              <div className="burger-toggle">
                 <div onClick={this.onClickBurgerButton} className="burger">
                   <div className="menu-piece"></div>
                   <div className="menu-piece"></div>

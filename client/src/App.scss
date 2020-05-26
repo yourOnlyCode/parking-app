@@ -1,9 +1,14 @@
 // Variables
-$primary: rgb(89, 201, 242);
-$secondary: rgb(138, 233, 220);
+$primary: rgba(30, 188, 245, 0.466);
+$secondary: rgb(103, 204, 191);
 
 
 // Styling
+
+body {
+  background: white;
+}
+
 .App {
   text-align: center;
 }
@@ -23,6 +28,11 @@ $secondary: rgb(138, 233, 220);
 
 .header-line {
   border-bottom: 1px solid $primary;
+}
+
+.burger-toggle {
+  animation-name: popin-menu;
+  animation-duration: .1s;
 }
 
 .burger {
@@ -93,12 +103,15 @@ $secondary: rgb(138, 233, 220);
   }
 }
 
+// HOME ITEMS
+
 .logo {
   width: 20%;
 }
 
 .home-container {
   background: $primary;
+  padding: 25px 0 100% 0;
 }
 
 .dropdown-model-container {
@@ -168,5 +181,14 @@ $secondary: rgb(138, 233, 220);
   }
   100% {
     width: 100%;
+  }
+}
+
+@keyframes popin-menu {
+  0% {
+    width: 100%
+  }
+  100% {
+    width: 0%
   }
 }
