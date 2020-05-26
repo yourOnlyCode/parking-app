@@ -44,10 +44,6 @@ export default class SingleVehicle extends Component {
                     <div className="single-vehicle-item">License Plate: {this.state.licensePlate}</div>
                     <div className="single-vehicle-item">Location: {this.state.stateAndCountry}</div>
 
-                    <button
-                        className="single-payment-item"
-                        onClick={this.onClickDeleteVehicle}
-                    >X</button>
                 </div>
             </div>
         )

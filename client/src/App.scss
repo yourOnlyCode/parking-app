@@ -168,6 +168,9 @@ body {
       width: 300px;
       height: 50px;
       font-size: 24px;
+      &:hover {
+        color: $tertiary;
+      }
 }
 
 .park-button {
@@ -179,6 +182,9 @@ body {
   width: 80%;
   height: 50px;
   font-size: 24px;
+  &:hover {
+    background: rgb(135, 206, 223);
+  }
 }
 
 .map {
