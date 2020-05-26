@@ -193,7 +193,7 @@ export default class Home extends Component {
         console.log('checking out')
         console.log(this.state.parkTime)
         clearInterval(this.myInterval)
-        this.setState({ parkTime: 0 })
+        this.setState({ parkTime: 60 })
         this.setState({ carParked: false })
     }
 
@@ -207,71 +207,78 @@ export default class Home extends Component {
                     alt="parkpal parkpalapp parkapp parking"
                 />
 
+
+
                 <div className="home-container">
 
-                    <form onSubmit={this.onSubmitParkCar}>
-                        <div className="dropdown-model-container">
-                            <label></label>
-                            <select>
-                                {this.state.closestLocations.map((locations) => {
-                                    return (
-                                        <option>{locations.name}</option>
-                                    )
-                                })}
-                            </select>
-                        </div>
+                    {this.state.carParked === false
 
-                        <div className="dropdown-model-container">
-                            <label></label>
-                            <select>
-                                {this.state.allVehicles.map((vehicle) => {
-                                    return (
-                                        <option>{vehicle.make} {vehicle.model}</option>
-                                    )
-                                })}
-                            </select>
-                        </div>
+                        ? <form onSubmit={this.onSubmitParkCar}>
+                            <div className="dropdown-model-container">
+                                <label></label>
+                                <select>
+                                    {this.state.closestLocations.map((locations) => {
+                                        return (
+                                            <option>{locations.name}</option>
+                                        )
+                                    })}
+                                </select>
+                            </div>
 
-                        <div className="dropdown-model-container">
-                            <label></label>
-                            <select>
-                                {this.state.allPayments.map((payment) => {
-                                    return (
-                                        <option>{payment.name} {payment.cardNumber}</option>
-                                    )
-                                })}
-                            </select>
-                        </div>
+                            <div className="dropdown-model-container">
+                                <label></label>
+                                <select>
+                                    {this.state.allVehicles.map((vehicle) => {
+                                        return (
+                                            <option>{vehicle.make} {vehicle.model}</option>
+                                        )
+                                    })}
+                                </select>
+                            </div>
 
-                        <div className="dropdown-model-container">
+                            <div className="dropdown-model-container">
+                                <label></label>
+                                <select>
+                                    {this.state.allPayments.map((payment) => {
+                                        return (
+                                            <option>{payment.name} {payment.cardNumber}</option>
+                                        )
+                                    })}
+                                </select>
+                            </div>
+
+                            <div className="dropdown-model-container">
+                                <input
+                                    type="number"
+                                    pattern="[0-9]"
+                                    name="parkTime"
+                                    value={this.state.parkTime}
+                                />
+                            </div>
+
                             <input
-                                type="text"
-                                pattern="[0-9]"
+                                type="submit"
+                                className="park-button"
                                 name="parkTime"
-                                value={this.state.parkTime}
-                                onChange={this.onChangeParkingTimer} />
+                                value="PARK!"
+                                onSubmit={this.onSubmitParkCar}
+                            />
+                        </form>
+
+                        : <div>
+                            <Timer
+                                parkTime={this.state.parkTime}
+                                carParked={this.state.carParked}
+                                timerCountDown={this.timerCountDown}
+                                timerAtZero={this.timerAtZero}
+                            />
+
+                            <button
+                                className="checkout"
+                                onClick={this.onClickCheckout}
+                            >Checkout Early</button>
                         </div>
-
-                        <input
-                            type="submit"
-                            className="park-button"
-                            name="parkTime"
-                            value="PARK!"
-                            onSubmit={this.onSubmitParkCar}
-                        />
-                    </form>
-
-                    <Timer
-                        parkTime={this.state.parkTime}
-                        carParked={this.state.carParked}
-                        timerCountDown={this.timerCountDown}
-                        timerAtZero={this.timerAtZero}
-                    />
-
-                    <button
-                        className="checkout"
-                        onClick={this.onClickCheckout}
-                    >Checkout Early</button>
+                    }
 
                 </div>
             </div>
