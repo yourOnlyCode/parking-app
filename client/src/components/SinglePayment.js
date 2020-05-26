@@ -27,15 +27,23 @@ export default class SinglePayment extends Component {
             console.log(err)
         }
     }
-
     render() {
         return (
             <div>
                 <h1>Payment</h1>
-                <div>Name: {this.state.name}</div>
-                <div>Card Num: {this.state.cardNumber}</div>
-                <div>Exp Date: {this.state.expirationDate}</div>
-                <div>ZIP: {this.state.ZIP}</div>
+
+                <div className="single-payment">
+                    <div className="single-payment-item">Name: {this.state.name}</div>
+                    <div className="single-payment-item">Card Num: {this.state.cardNumber}</div>
+                    <div className="single-payment-item">Exp Date: {this.state.expirationDate}</div>
+                    <div className="single-payment-item">ZIP: {this.state.ZIP}</div>
+
+                    <button
+                        className="single-payment-item"
+                        onClick={this.onClickDeletePayment}
+                    >X</button>
+                </div>
+
             </div>
         )
     }

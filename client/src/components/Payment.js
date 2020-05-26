@@ -55,83 +55,98 @@ export default class Payment extends Component {
         this.setState({ togglePaymentForm: !this.state.togglePaymentForm })
     }
 
+    onClickDeletePayment = (paymentId) => {
+        console.log('attempting to delete')
+        axios.delete(`/api/payment/${paymentId}`)
+            .then(() => {
+                this.getAllPayments()
+            })
+    }
+
+
 
     render() {
         return (
             <div>
                 <h1>All Payments</h1>
+                <div className="payment-page">
 
-                {this.state.togglePaymentForm === true
+                    {this.state.togglePaymentForm === true
 
-                    ? <div>
-                        {this.state.allPayments.map((payment) => {
-                            return (
-                                <Link to={`/payment/${payment._id}`} >
-                                    <div>{payment.name} {payment.cardNumber}</div>
-                                </Link>
-                            )
-                        })}
+                        ? <div className="payment-list">
+                            {this.state.allPayments.map((payment) => {
+                                return (
+                                    <div>
+                                        <Link className="payment-link" to={`/payment/${payment._id}`} >
+                                            <div className="single-payment">{payment.name} {payment.cardNumber}</div>
+                                        </Link>
+                                        <button onClick={this.onClickDeletePayment}>delete</button>
+                                    </div>
+                                )
 
-                        <button
-                            className="new-form-button"
-                            onClick={this.onClickToggleForm}>Add New Payment</button>
-                    </div>
+                            })}
 
-                    : <form onSubmit={this.onPaymentSubmit}>
-
-                        <div className="payment-form">
-                            <label htmlFor="name">Name:</label>
-                            <input
-                                type="text"
-                                name="name"
-                                value={this.state.newPayment.name}
-                                onChange={this.onChange}
-                            />
-                        </div>
-                        <div className="payment-form">
-                            <label htmlFor="cardNumber">Card:</label>
-                            <input
-                                type="text"
-                                name="cardNumber"
-                                value={this.state.newPayment.cardNumber}
-                                onChange={this.onChange}
-                            />
-                        </div>
-                        <div className="payment-form">
-                            <label htmlFor="expirationDate">Exp Date:</label>
-                            <input
-                                type="text"
-                                name="expirationDate"
-                                value={this.state.newPayment.expirationDate}
-                                onChange={this.onChange}
-                            />
-                        </div>
-                        <div className="payment-form">
-                            <label htmlFor="CVV">CVV:</label>
-                            <input
-                                type="number"
-                                name="CVV"
-                                value={this.state.newPayment.CVV}
-                                onChange={this.onChange}
-                            />
-                        </div>
-                        <div className="payment-form">
-                            <label htmlFor="ZIP">ZIP:</label>
-                            <input
-                                type="number"
-                                name="ZIP"
-                                value={this.state.newPayment.ZIP}
-                                onChange={this.onChange}
-                            />
+                            <button
+                                className="add-payment"
+                                onClick={this.onClickToggleForm}>Add New</button>
                         </div>
 
-                        <input type="submit" value="Add Payment" />
+                        : <form onSubmit={this.onPaymentSubmit}>
 
-                        <button
-                            className="new-form-button"
-                            onClick={this.onClickToggleForm}>Cancel</button>
-                    </form>
-                }
+                            <div className="payment-form">
+                                <label htmlFor="name">Name:</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={this.state.newPayment.name}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+                            <div className="payment-form">
+                                <label htmlFor="cardNumber">Card:</label>
+                                <input
+                                    type="text"
+                                    name="cardNumber"
+                                    value={this.state.newPayment.cardNumber}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+                            <div className="payment-form">
+                                <label htmlFor="expirationDate">Exp Date:</label>
+                                <input
+                                    type="text"
+                                    name="expirationDate"
+                                    value={this.state.newPayment.expirationDate}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+                            <div className="payment-form">
+                                <label htmlFor="CVV">CVV:</label>
+                                <input
+                                    type="number"
+                                    name="CVV"
+                                    value={this.state.newPayment.CVV}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+                            <div className="payment-form">
+                                <label htmlFor="ZIP">ZIP Code:</label>
+                                <input
+                                    type="number"
+                                    name="ZIP"
+                                    value={this.state.newPayment.ZIP}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+
+                            <input className="add-payment" type="submit" value="Add Payment" />
+
+                            <button
+                                className="add-payment"
+                                onClick={this.onClickToggleForm}>Cancel</button>
+                        </form>
+                    }
+                </div>
 
             </div>
         )

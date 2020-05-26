@@ -6,6 +6,7 @@ const vehicleRouter = require('./controllers/vehicle.js')
 const paymentRouter = require('./controllers/payment.js')
 const locationRouter = require('./controllers/location.js')
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 app.use(express.static(`${__dirname}/client/build`))
 

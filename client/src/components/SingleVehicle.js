@@ -27,12 +27,28 @@ export default class SingleVehicle extends Component {
         }
     }
 
+    onClickDeleteVehicle = (vehicleId) => {
+        console.log('attempting to delete')
+        axios.delete(`/api/payment/${vehicleId}`)
+            .then(() => {
+                this.getSingleVehicle()
+            })
+    }
+
     render() {
         return (
-            <div className="single-vehicle">
+            <div>
                 <h1 className="single-vehicle-title">{this.state.make} {this.state.model}</h1>
-                <div className="single-vehicle-list">License Plate: {this.state.licensePlate}</div>
-                <div className="single-vehicle-list">Location: {this.state.stateAndCountry}</div>
+
+                <div className="single-vehicle">
+                    <div className="single-vehicle-item">License Plate: {this.state.licensePlate}</div>
+                    <div className="single-vehicle-item">Location: {this.state.stateAndCountry}</div>
+
+                    <button
+                        className="single-payment-item"
+                        onClick={this.onClickDeleteVehicle}
+                    >X</button>
+                </div>
             </div>
         )
     }

@@ -3,15 +3,19 @@ $primary: rgba(30, 188, 245, 0.466);
 $secondary: rgb(109, 220, 205);
 $tertiary: rgb(132, 255, 196);
 
+@import url(https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap);
+
 
 // Styling
 
 body {
   background: white;
+  font-family: Lato, sans-serif;
 }
 
 .App {
   text-align: center;
+  font-family: Lato, sans-serif;
 }
 
 .home-header {
@@ -231,8 +235,6 @@ body {
   }
 }
 
-
-
 .vehicle-form {
 
   label {
@@ -270,7 +272,102 @@ body {
 // SINGLE VEHICLE
 
 .single-vehicle {
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background: $primary;
+}
+
+.single-vehicle-item {
+  margin: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 5px;
+      width: 250px;
+}
+
+// PAYMENT
+.payment-page {
+  background: $primary;
+  padding: 25px 0 100% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.payment-list {
+  text-decoration: none;
+  margin: 20px;
+
+  .payment-link {
+    text-decoration: none;
+    color: black;
+    &:hover {
+      color: silver;
+    }
+
+    .single-payment {
+      margin: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 5px;
+      width: 250px;
+    }
+  }
+}
+
+.payment-form {
+
+  label {
+    font-size: 20px;
+  }
+
+  input {
+    color: rgb(172, 172, 172);
+      background: rgb(255, 255, 255);
+      margin: 10px;
+      padding: 5px;
+      border-radius: 5px;
+      width: 80%;
+      height: 38px;
+      font-size: 24px;
+      text-align: center;
+  }
+}
+
+.add-payment {
+  color: $secondary;
+      background: rgb(255, 255, 255);
+      margin: 25px 10px;
+      padding: 5px;
+      border-radius: 5px;
+      width: 140px;
+      height: 50px;
+      font-size: 22px;
+
+      &:hover {
+        color: $tertiary;
+      }
+}
+
+// SINGLE PAYMENT
+.single-payment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background: $primary;
+}
+
+.single-payment-item {
+  margin: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 5px;
+      width: 250px;
 }
 
 // KEYFRAMES
