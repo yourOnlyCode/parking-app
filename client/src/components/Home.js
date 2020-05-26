@@ -107,7 +107,7 @@ export default class Home extends Component {
                     lng: newLng,
                 }
             })
-            this.getClosestLocationFromCurrentPosition()
+            await this.getClosestLocationFromCurrentPosition()
         } catch (err) {
             console.log(err)
         }
