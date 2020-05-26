@@ -7,6 +7,6 @@ Click [here](https://park-pal.herokuapp.com/) to launch!
 
 Project Board in GitHub Project
 
-![ERD](parking-ERD.pdf)
+![ERD](parking-ERD.pdf "ERD")
 
-![Wireframe](parking-app.pdf)
+![Wireframe](parking-app.pdf "Wireframe")
