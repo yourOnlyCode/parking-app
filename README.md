@@ -7,6 +7,6 @@ Click [here](https://park-pal.herokuapp.com/) to launch!
 
 Project Board in GitHub Project tab or click [here](https://github.com/yourOnlyCode/parking-app/projects/1)
 
-[ERD](https://i.imgur.com/Nl9eGnY.png)
+![ERD](https://i.imgur.com/Nl9eGnY.png)
 
-[Wireframe](https://i.imgur.com/ZvpnBM4.png)
+![Wireframe](https://i.imgur.com/ZvpnBM4.png)
