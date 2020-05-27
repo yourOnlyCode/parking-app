@@ -9,6 +9,7 @@ const locationRouter = require('./controllers/location.js')
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 app.use(express.static(`${__dirname}/client/build`))
+app.use(express.static(`${__dirname}/client/public`))
 
 app.use('/api/vehicle', vehicleRouter)
 app.use('/api/payment', paymentRouter)
