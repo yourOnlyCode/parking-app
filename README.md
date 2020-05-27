@@ -9,6 +9,4 @@ Project Board in GitHub Project tab or click [here](https://github.com/yourOnlyC
 
 ![ERD](./parking-erd.jpg)
 
-<img src="./parking-erd.jpg" />
-
 ![Wireframe](parking-app.pdf)
