@@ -9,6 +9,6 @@ Project Board in GitHub Project tab or click [here](https://github.com/yourOnlyC
 
 ![ERD](/erd.png)
 
-<img src="erd.png" />
+<img src="/erd.png" />
 
 ![Wireframe](/wireframe.png)
