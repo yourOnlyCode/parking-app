@@ -52,9 +52,9 @@ class App extends React.Component {
                   <div className="home-icon-container">
                     <Link className="link" onClick={this.onClickBurgerButton} to="/">
                       <span class="material-icons">
-                        home
+                        place
                     </span>
-                    Home</Link>
+                    Park</Link>
                   </div>
 
                   <div className="home-icon-container">
